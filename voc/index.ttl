@@ -1,0 +1,68 @@
+@prefix so:   <http://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix bess: <https://w3id.org/bess/voc#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix did:  <https://w3id.org/dob/id/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix ssn:  <http://www.w3.org/ns/ssn/> .
+@prefix bot:  <https://w3id.org/bot#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dop:  <https://w3id.org/dob/voc/prop#> .
+
+###################################################
+### ONTOLOGY METADATA
+###################################################
+
+bess: a owl:Ontology ;
+    dct:title "BESS project utility ontology"@en ;
+    owl:imports prov:, sosa:, ssn:, bot:, dcat:, dct:, so: ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dct:creator [ a foaf:Organization ;
+                  foaf:name "xRI" ;
+                  foaf:homepage <https://www.xri.online/> ] .
+
+bess:PhidgetHumiditySensor a rdfs:Class ;
+    rdfs:label "Phidget Humidity Sensor"@en ;
+    rdfs:comment "Phidget Humidity Sensor measures relative humidity in the environment."@en ;
+    rdfs:subClassOf sosa:Sensor, so:Product ;
+    sosa:observes dop:RelativeHumidity ;
+    prov:wasGeneratedBy did:update_activity_20250314 .
+
+bess:PhidgetTemperatureSensor a rdfs:Class ;
+    rdfs:label "Phidget Temperature Sensor"@en ;
+    rdfs:comment "Phidget Temperature Sensor measures ambient temperature data in degrees Celsius."@en ;
+    rdfs:subClassOf sosa:Sensor, so:Product ;
+    sosa:observes dop:CelsiusTemperature .
+
+bess:OusterLidarSensor a rdfs:Class ;
+    rdfs:label "Ouster Lidar Sensor"@en ;
+    rdfs:comment "Ouster Lidar Sensor is a lidar device manufactured by Ouster, capturing point cloud data along with reflectance, range, signal strength, and near-infrared intensity."@en ;
+    rdfs:subClassOf sosa:Sensor, so:Product ;
+    sosa:observes dop:PrincipalElevation3D,
+                  dop:PrincipalElevationNearIR,
+                  dop:PrincipalElevationRange,
+                  dop:PrincipalElevationReflectance,
+                  dop:PrincipalElevationSignal .
+
+bess:FlirOryxCamera a rdfs:Class ;
+    rdfs:label "FLIR Oryx Camera"@en ;
+    rdfs:comment "FLIR Oryx Camera is an RGB camera sensor manufactured by FLIR, capable of capturing high-resolution images."@en ;
+    rdfs:subClassOf sosa:Sensor, so:Product ;
+    sosa:observes dop:PrincipalElevationAppearance .
+
+bess:FlirA70Camera a rdfs:Class ;
+    rdfs:label "FLIR A70 Camera"@en ;
+    rdfs:comment "FLIR A70 Camera is an infrared (IR) camera sensor manufactured by FLIR, capable of capturing thermal images."@en ;
+    rdfs:subClassOf sosa:Sensor, so:Product ;
+    sosa:observes dop:PrincipalElevationThermalMap .
+
+bess:LordMicrostrainINSGQ7 a rdfs:Class ;
+    rdfs:label "LORD Microstrain Inertial Navigation System"@en ;
+    rdfs:comment "LORD Microstrain INS sensor captures orientation, position, and navigation data referenced to the WGS84 coordinate system."@en ;
+    rdfs:subClassOf sosa:Sensor, so:Product ;
+    sosa:observes dop:WGS84Coordinates .
