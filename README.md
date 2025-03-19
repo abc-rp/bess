@@ -12,6 +12,7 @@ This enables the creation of a network of built environment data that can be use
 
 ## The BESS Ontology
 
+This is a separate ontology from the dob ontology. This is designed to keep the dob ontology clean as we describe our specific sosa/ssn description of the systems to support the collection of building data for dob.
 
 ## Persistent Identifier
 
